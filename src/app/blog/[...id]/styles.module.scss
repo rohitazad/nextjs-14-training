@@ -1,0 +1,21 @@
+.details{
+    padding:20px 0;
+}
+.tags{
+    span{
+        display: inline-block;
+        vertical-align: top;
+        padding:5px 10px;
+        border:solid 1px gray;
+        border-radius: 5px;
+        margin:5px;
+        text-transform: capitalize;
+    }
+
+}
+.backBtn{
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px 0 40px 0;
+    font-weight: 800;
+}
