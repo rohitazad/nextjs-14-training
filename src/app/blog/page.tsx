@@ -1,11 +1,19 @@
 
+import BlogList from "../../components/BlogList";
+const BlogPage = async ()=>{
+     const fetchBlogData = async ()=>{
+        const APIURL = "https://dummyjson.com/posts"
+        const data = await fetch(APIURL);
+        const resData = await data.json(); 
+        return resData;
+     }
 
-const BlogPage = ()=>{
+     const getPostData:any = await fetchBlogData();
     return (
         <>
          <div className='wraper'>
             <h1>Blog  Page Us </h1>
-            <p>Blog Page Some Description</p>
+            <BlogList data={getPostData.posts} />
          </div>
         </>
     )
