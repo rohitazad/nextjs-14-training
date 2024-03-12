@@ -1,0 +1,29 @@
+.header{
+    background-color: #e6e6e6;
+    padding:20px 0;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    ul{
+        list-style-type:none;
+        margin:0;
+        padding:0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        column-gap: 20px;
+        a{
+            color:#000000;
+            font-weight: 700;
+            text-decoration: none;
+            &:hover{
+                color:#091A4F;
+                text-decoration: underline;
+            }
+        }
+    }
+}
