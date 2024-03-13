@@ -1,4 +1,4 @@
-
+import CRUDoprations from "../../components/CRUP";
 
 const CRUDPage = ()=>{
     return (
@@ -6,6 +6,7 @@ const CRUDPage = ()=>{
         <div className="wraper">
             <h1>CRUDPage Page Us </h1>
             <p>CRUDPage Page Some Description</p>
+            <CRUDoprations />
         </div>
         </>
     )

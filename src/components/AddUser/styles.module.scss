@@ -1,0 +1,25 @@
+.formWrap{
+    margin:20px 0;
+    padding:10px;
+    border-radius: 10px;
+    border:solid 1px rgba(0,0,0,0.2);
+    button{
+        border-radius: 10px;
+        padding:10px 20px;
+        background: #091A4F;
+        color:#ffffff;
+        outline:0;
+        border:0;
+        cursor: pointer;
+    }
+}
+.formSec{
+    margin:10px 0;
+    input{
+        line-height: 24px;
+        width:80%;
+        padding:10px;
+        font-size:16px;
+        font-weight: 600;
+    }
+}
