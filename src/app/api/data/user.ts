@@ -31,4 +31,13 @@ export const userUpdateById = (id:string, name:string, age:number) =>{
     }
 }
 
-export const userRemoveById = (id:string)=>  UsersInfoDetails.filter((item)=> item.id !== id)
+export const userRemoveById = (id:string)=>  {
+    const indexToRemove = UsersInfoDetails.findIndex(item => item.id === id);
+    if (indexToRemove !== -1) {
+        UsersInfoDetails.splice(indexToRemove, 1);
+        return UsersInfoDetails.filter((item)=> item.id !== id)
+    }else{
+        return "not Found user" 
+    }
+    
+}

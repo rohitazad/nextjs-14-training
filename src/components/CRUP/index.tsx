@@ -33,7 +33,7 @@ const CRUDoprations = ()=>{
             headers: {
                 'Content-Type': 'application/json' 
             },
-            body: JSON.stringify(data) 
+            body: JSON.stringify(data),
         };
         const getData = await fetch(url,options);
         const resData = await getData.json();
@@ -51,7 +51,7 @@ const CRUDoprations = ()=>{
             age,
         };
         const options = {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json' 
             },
@@ -59,21 +59,17 @@ const CRUDoprations = ()=>{
         };
         const getData = await fetch(url,options);
         const resData = await getData.json();
-        const updatedUserData = userData.map((user:any) => {
-            if (user.id === postId) {
-                return { ...userData, name: userName, age };
-            }
-            return user;
-        });
+        alert("edit succeussfuly")
         
-        setUserData(updatedUserData);
+        
         setUserName("");
         setAge("");
         setPostid("");
-        setMode(false)
+        setMode(false);
+        fetchData()
     }
     const fetchData = async ()=>{
-        const data = await fetch(`http://localhost:3000/api/user`);
+        const data = await fetch(`http://localhost:3000/api/user`,{cache: 'no-store'});
         const resData = await data.json();
         setUserData(resData.userDetails)
     }
@@ -84,10 +80,30 @@ const CRUDoprations = ()=>{
         setPostid(userDetail.id);
         setMode(true)
     }
+    const removeFunAPICall = async (id:any)=>{
+        const url = `http://localhost:3000/api/user/${id}`;
+        const response = await fetch(url, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json', // Adjust if necessary
+          }
+        });
+    
+        if (!response.ok) {
+          throw new Error(`DELETE request failed with status ${response.status}`);
+        }
+    
+        alert('Data deleted successfully');
+        fetchData()
+    }
     const removeFun = (id:any)=>{
         console.log("remove", id)
+        const userConfirm = confirm("Are you sure you want to remove to this list");
+        if(userConfirm){
+            removeFunAPICall(id)
+        }
     }
-    console.log(userData)
+    
     useEffect(()=>{
         fetchData();
     },[])
